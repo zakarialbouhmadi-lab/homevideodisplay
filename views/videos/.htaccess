@@ -1,0 +1,20 @@
+# Allow access to video files
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Allow specific video file types
+<FilesMatch "\.(mp4|webm|ogg)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Set proper MIME types
+<IfModule mod_mime.c>
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    AddType video/ogg .ogg
+</IfModule>

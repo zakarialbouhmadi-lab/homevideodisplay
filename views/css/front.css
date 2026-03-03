@@ -1,0 +1,269 @@
+/**
+ * Home Video Display - Enhanced Frontend CSS
+ * With playlist controls and responsive text visibility
+ */
+
+.homevideo-container {
+    padding: 40px 0;
+}
+
+.homevideo-video-col {
+    margin-bottom: 30px;
+}
+
+/* Video Wrapper */
+.video-wrapper {
+    position: relative;
+    background-color: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Playlist Controls */
+.video-playlist-controls {
+    position: absolute;
+    bottom: 35px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.video-playlist-controls:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.playlist-info {
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.playlist-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.playlist-buttons button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.playlist-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.playlist-buttons button:active {
+    transform: scale(0.95);
+}
+
+/* Play overlay for when autoplay is blocked */
+.video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.video-play-overlay .play-btn {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 2px solid white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.video-play-overlay .play-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Text Content Styling */
+.homevideo-text-col .text-content {
+    padding: 20px;
+}
+
+/* Responsive Text Visibility */
+
+/* Hide text on mobile when disabled */
+@media (max-width: 767px) {
+    .homevideo-hide-text-mobile .homevideo-text-col {
+        display: none !important;
+    }
+    
+    .homevideo-hide-text-mobile .homevideo-video-col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .video-wrapper video {
+        max-height: 300px;
+    }
+    
+    .homevideo-text-col .text-content {
+        padding: 20px 15px;
+    }
+    
+    /* Adjust playlist controls for mobile */
+    .video-playlist-controls {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .playlist-buttons button {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
+
+/* Hide text on desktop when disabled */
+@media (min-width: 768px) {
+    .homevideo-container {
+        padding: 60px 0;
+    }
+    
+    .homevideo-video-col {
+        margin-bottom: 0;
+        padding-right: 15px;
+    }
+    
+    .homevideo-text-col {
+        padding-left: 15px;
+    }
+    
+    .homevideo-text-col .text-content {
+        padding: 0 0 0 30px;
+    }
+    
+    .video-wrapper video {
+        max-height: 450px;
+    }
+    
+    .homevideo-hide-text-desktop .homevideo-text-col {
+        display: none !important;
+    }
+    
+    .homevideo-hide-text-desktop .homevideo-video-col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding-right: 0;
+    }
+    
+    .homevideo-hide-text-desktop .video-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .homevideo-text-col .text-content h2 {
+        font-size: 32px;
+    }
+    
+    .video-wrapper video {
+        max-height: 500px;
+    }
+    
+    .homevideo-hide-text-desktop .video-wrapper {
+        max-width: 900px;
+    }
+}
+
+/* When both mobile and desktop text are hidden */
+.homevideo-hide-text-mobile.homevideo-hide-text-desktop .homevideo-text-col {
+    display: none !important;
+}
+
+.homevideo-hide-text-mobile.homevideo-hide-text-desktop .homevideo-video-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.homevideo-hide-text-mobile.homevideo-hide-text-desktop .video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Smooth transitions for layout changes */
+.homevideo-video-col,
+.homevideo-text-col {
+    transition: all 0.3s ease;
+}
+
+.video-wrapper {
+    transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+.playlist-buttons button:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.video-play-overlay .play-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 3px;
+}
+
+/* Loading state */
+.video-wrapper video:not([src]) {
+    background: #f8f9fa url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="none" stroke="%23dee2e6" stroke-width="4"/></svg>') center/50px no-repeat;
+    min-height: 200px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .video-wrapper {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .video-playlist-controls {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+    }
+    
+    .playlist-buttons button {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+}
