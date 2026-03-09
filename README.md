@@ -1,4 +1,5 @@
 # Home Video Display - PrestaShop Module
+![PrestaShop](https://img.shields.io/badge/PrestaShop-8-blue)
 
 ## Overview
 
